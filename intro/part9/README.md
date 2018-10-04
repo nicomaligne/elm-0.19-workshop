@@ -12,7 +12,7 @@ Then open `http://localhost:3000` in your browser.
 
 ## Exercise
 
-Look at `intro/server/public/index.html` to see how the localforage ports are
+Look at `intro/server/public/index.html` to see how the localstorage ports are
 hooked up on the JavaScript side.
 
 The exercise is to add the corresponding ports to `src/Session.elm`. See the
