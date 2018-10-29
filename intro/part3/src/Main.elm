@@ -25,15 +25,19 @@ initialModel =
 
 
 update msg model =
-    {- 👉 TODO: If `msg.description` is "ClickedTag", then
-                set the model's `selectedTag` field to be `msg.data`
+    if msg.description == "ClickedTag" then
+        { model | selectedTag = msg.data }
 
-       💡 HINT: record update syntax looks like this:
+    else
+        {- 👉 TODO: If `msg.description` is "ClickedTag", then
+                    set the model's `selectedTag` field to be `msg.data`
 
-                { model | foo = bar }
+           💡 HINT: record update syntax looks like this:
 
-    -}
-    model
+                    { model | foo = bar }
+
+        -}
+        model
 
 
 
@@ -51,7 +55,7 @@ view model =
                     Docs for List.member: http://package.elm-lang.org/packages/elm-lang/core/latest/List#member
         -}
         articles =
-            List.filter (\article -> True)
+            List.filter (\article -> List.member model.selectedTag article.tags)
                 model.allArticles
 
         feed =
@@ -101,6 +105,7 @@ viewTag selectedTagName tagName =
     in
     button
         [ class ("tag-pill " ++ otherClass)
+        , onClick { description = "ClickedTag", data = tagName }
 
         {- 👉 TODO: Add an `onClick` handler which sends a msg
                     that our `update` function above will use
