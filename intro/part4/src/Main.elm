@@ -100,7 +100,7 @@ view model =
         ]
 
 
-{-| 👉 TODO: Replace this comment with a type annotation for `view`
+{-| 👉 TODO: Replace this comment with a type annotation for `viewArticle`
 -}
 viewArticle : Article -> Html Msg
 viewArticle article =
